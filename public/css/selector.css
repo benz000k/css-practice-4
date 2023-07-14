@@ -1,0 +1,75 @@
+/* :root {
+  background: purple;
+}
+
+html {
+  max-width: 720px;
+}
+
+body {
+  background: #fff;
+}
+
+* {
+  color: red;
+}
+
+.box {
+  background: #b1acac;
+} */
+
+.card-dark {
+  background: #ededed;
+}
+
+.item {
+  color: green;
+}
+
+.item:last-of-type {
+  color: blue;
+}
+
+.input-dark {
+  background: #929292;
+}
+
+.input-dark[required] {
+  background: #f80000;
+}
+
+.input-dark[type='number'] {
+  background: #03e421;
+}
+
+.img-small[alt~='small'] {
+  height: 500px;
+}
+
+button[class|='btn'] {
+  background: rgb(88, 88, 88);
+}
+
+button[class^='btn'] {
+  background: rgb(235, 7, 7);
+}
+
+#test:target {
+  color: red;
+}
+
+.link:link {
+  color: red;
+}
+
+.link:hover {
+  color: aqua;
+}
+
+button {
+  background-color: #03e421;
+}
+
+button:enabled {
+  background-color: #f80000;
+}
