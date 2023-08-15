@@ -1,0 +1,13 @@
+<div class='div_card'>
+  {{#each articles}}
+    <div class='art_card'>
+      <img
+        src='{{photo}}'
+        alt='articlephoto'
+        class='art_photo'
+      />
+      <strong class='art_name'>{{name}}</strong>
+      <div class='art_description'>{{description}}</div>
+    </div>
+  {{/each}}
+</div>
