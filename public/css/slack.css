@@ -1,8 +1,80 @@
-@layer component, variant, normalize;
+@layer normalize, component, variant, main, adaptive;
 
 @font-face {
   font-family: 'HelveticaNeueBold';
   src: url('/font/HelveticaNeueBold.ttf');
+}
+
+@layer component {
+  .icon {
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .double_line {
+    line-height: var(--line-height);
+  }
+
+  .button {
+    text-decoration: none;
+    padding: var(--space-4);
+    border-radius: var(--radius-1);
+    text-align: center;
+    border: 1px solid;
+  }
+
+  .click {
+    transition: opacity 0.7s;
+  }
+
+  .clickn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .click:active {
+    opacity: 0.5;
+  }
+
+  .page_section {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@layer variant {
+  .feat_icon {
+    height: 48px;
+    width: 48px;
+  }
+
+  .arrow_icon {
+    height: 14px;
+    width: 24px;
+    background-image: url(/svg/arrow-right.svg);
+    display: block;
+  }
+
+  .page_section_light {
+    background-color: var(--color-light);
+  }
+
+  .button_primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+  }
+
+  .button_primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+  }
+
+  .button_secondary {
+    color: var(--color-primary);
+    background-color: var(--color-white);
+    border-color: var(--color-primary);
+    border-width: 2px;
+  }
 }
 
 body {
@@ -24,137 +96,176 @@ body {
   --size-1: 14px;
   --size-2: 18px;
   --size-3: 22px;
+  --size-4: 26px;
+  --size-5: 30px;
+  --size-6: 34px;
 
   --color-white: #ffffff;
   --color-black: #000;
   --color-primary: #611f69;
+  --color-light: #f4ede4;
 
   --page-width-big: 1260px;
   --page-width-medium: 1000px;
   --page-width-small: 700px;
 
   --radius-1: 4px;
+
+  --line-height: 1.5em;
 }
 
-.page {
-  display: grid;
-}
-
-.page_content {
-  width: 100%;
-
-  padding: var(--space-3);
-}
-
-@media all and (1260 <= width) {
-  .page_content {
-    max-width: var(--page-width-big);
+@layer main {
+  .page {
+    display: grid;
   }
-}
 
-@media all and (1000 <= width < 1260px) {
   .page_content {
-    max-width: var(--page-width-medium);
+    width: 100%;
+
+    padding: var(--space-3);
   }
-}
 
-@media all and (width < 1000px) {
-  .page_content {
-    max-width: var(--page-width-small);
+  .hero_section {
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+
+    height: 60vh;
+    min-height: 600px;
   }
-}
 
-.hero_section {
-  display: flex;
-  flex-direction: column;
-  gap: 200px;
+  .hero {
+    height: 100%;
+    display: flex;
+    align-items: center;
 
-  height: 60vh;
-  min-height: 620px;
-}
+    margin-top: 50px;
+  }
 
-.hero {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
+  .hero_content {
+    display: grid;
+    gap: var(--space-5);
 
-.hero_content {
-  display: grid;
-  gap: var(--space-5);
+    max-width: 425px;
 
-  max-width: 425px;
-
-  color: var(--color-black);
-
-  position: relative;
-}
-
-.brands {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  column-gap: var(--space-8);
-  row-gap: var(--space-4);
-  flex-wrap: wrap;
-}
-
-.hero_image {
-  position: absolute;
-  left: 580px;
-  top: 0;
-}
-
-.hero_label {
-  font-size: var(--size-1);
-}
-
-.hero_title {
-  font-size: 50xp;
-}
-
-.hero_info {
-  font-size: var(--size-2);
-}
-
-.hero_buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
-}
-
-@layer compotent {
-  .button {
-    text-decoration: none;
     color: var(--color-black);
-    padding: var(--space-4);
-    border-radius: var(--radius-1);
-    text-align: center;
-    border: 1px solid transparent;
-    transition: opacity 0.7s;
+
+    position: relative;
   }
 
-  .button:hover {
-    opacity: 0.7;
-    cursor: pointer;
+  .brands {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: var(--space-8);
+    row-gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .hero_label {
+    font-size: var(--size-1);
   }
 
-  .button:active {
-    opacity: 0.5;
+  .hero_title {
+    font-size: 50px;
+  }
+
+  .hero_info {
+    font-size: var(--size-2);
+  }
+
+  .hero_buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+
+  .features_section {
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    display: grid;
+    gap: var(--space-5);
+
+    background-image: url(/img/features.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+
+  .festures_title {
+    font-size: var(--size-6);
+  }
+
+  .features_description {
+    font-size: var(--size-2);
+    max-width: 520px;
+  }
+
+  .feat_card {
+    padding: var(--space-3);
+    background-color: var(--color-white);
+    display: grid;
+    gap: var(--space-3);
+
+    font-size: var(--size-2);
+
+    grid-template-rows: min-content min-content 1fr min-content;
+  }
+
+  .feat_link {
+    justify-self: flex-end;
+  }
+
+  .features_grid_4 {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: var(--size-3);
+  }
+
+  .features_grid_4 > .feat_card:first-of-type {
+    grid-row: 1 / 3;
   }
 }
 
-@layer variant {
-  .button_primary {
-    color: var(--color-white);
-    background-color: var(--color-primary);
+@layer adaptive {
+  @media all and (1260 <= width) {
+    .page_content {
+      max-width: var(--page-width-big);
+    }
   }
 
-  .button_secondary {
-    color: var(--color-primary);
-    background-color: var(--color-white);
-    border-color: var(--color-primary);
-    border-width: 2px;
+  @media all and (1000 <= width < 1260px) {
+    .page_content {
+      max-width: var(--page-width-medium);
+    }
+
+    .hero_image {
+      left: 518px;
+      height: 300px;
+    }
+  }
+
+  @media all and (width < 1000px) {
+    .page_content {
+      max-width: var(--page-width-small);
+    }
+    .hero_image {
+      position: static;
+      width: 100%;
+      order: -1;
+    }
+
+    .hero_content {
+      width: 100%;
+    }
+  }
+
+  @media all and (width < 360px) {
+    .hero_buttons {
+      grid-template-columns: 1fr;
+    }
   }
 }
